@@ -1,5 +1,5 @@
 import express  from "express";
-import db from './config/bdConnect.js';
+import db from './conf/database.js';
 import routes from './routes/index.js'
 
 db.on("error", console.log.bind(console, 'Connection error'))

@@ -7,3 +7,5 @@ class expensesController {
         })
     }
 } 
+
+export default expensesController

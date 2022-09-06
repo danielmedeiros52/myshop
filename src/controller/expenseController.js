@@ -1,8 +1,9 @@
-import expenses from "../model/Expenses";
+import expenses from "../model/Expenses.js";
 
 class expensesController {
+    
     static getAll = (req,res)=>{
-        autores.find((err, expenses)=> {
+        expenses.find((err, expenses)=> {
             res.status(200).json(expenses)
         })
     }

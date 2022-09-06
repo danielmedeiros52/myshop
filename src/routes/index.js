@@ -1,7 +1,5 @@
 import express from "express";
-import expensesController from "../controller/expenseController";
-import productController from "../controller/productController";
-import userController from "../controller/userController";
+import user from "./userRoute.js"
 
 const routes = (app)=>{ 
 app.route('/').get((req,res)=>{
@@ -9,9 +7,7 @@ app.route('/').get((req,res)=>{
 })
 app.use(
         express.json(),
-        expensesController,
-        productController,
-        userController
+        user,
         
     )
 

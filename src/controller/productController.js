@@ -1,4 +1,4 @@
-import products from "../model/Product";
+import products from "../model/Product.js";
 
 class productController{
     static getAll = (req , res) =>{

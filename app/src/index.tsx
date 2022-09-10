@@ -1,19 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom'
+// Axios
+import axios from 'axios'
+import {Chart, registerables} from 'chart.js'
+import {QueryClient, QueryClientProvider} from 'react-query'
+import {ReactQueryDevtools} from 'react-query/devtools'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// Apps
+import {MetronicI18nProvider} from './_metronic/i18n/Metronici18n'
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import './_metronic/assets/sass/style.scss'
+import './_metronic/assets/sass/style.react.scss'
+import {AppRoutes} from './app/routing/AppRoutes'
+import {AuthProvider, setupAxios} from './app/modules/auth'
+
+setupAxios(axios)
+
+Chart.register(...registerables)
+
+const queryClient = new QueryClient()
+
+ReactDOM.render(
+  <QueryClientProvider client={queryClient}>
+    <MetronicI18nProvider>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
+    </MetronicI18nProvider>
+    <ReactQueryDevtools initialIsOpen={false} />
+  </QueryClientProvider>,
+  document.getElementById('root')
+)

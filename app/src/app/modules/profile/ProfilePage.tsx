@@ -1,10 +1,5 @@
 import {Navigate, Routes, Route, Outlet} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_metronic/layout/core'
-import {Overview} from './components/Overview'
-import {Projects} from './components/Projects'
-import {Campaigns} from './components/Campaigns'
-import {Documents} from './components/Documents'
-import {Connections} from './components/Connections'
 import {ProfileHeader} from './ProfileHeader'
 
 const profileBreadCrumbs: Array<PageLink> = [
@@ -37,7 +32,6 @@ const ProfilePage = () => (
         element={
           <>
             <PageTitle breadcrumbs={profileBreadCrumbs}>Overview</PageTitle>
-            <Overview />
           </>
         }
       />
@@ -46,7 +40,6 @@ const ProfilePage = () => (
         element={
           <>
             <PageTitle breadcrumbs={profileBreadCrumbs}>Projects</PageTitle>
-            <Projects />
           </>
         }
       />
@@ -55,7 +48,6 @@ const ProfilePage = () => (
         element={
           <>
             <PageTitle breadcrumbs={profileBreadCrumbs}>Campaigns</PageTitle>
-            <Campaigns />
           </>
         }
       />
@@ -64,7 +56,6 @@ const ProfilePage = () => (
         element={
           <>
             <PageTitle breadcrumbs={profileBreadCrumbs}>Documents</PageTitle>
-            <Documents />
           </>
         }
       />
@@ -73,7 +64,6 @@ const ProfilePage = () => (
         element={
           <>
             <PageTitle breadcrumbs={profileBreadCrumbs}>Connections</PageTitle>
-            <Connections />
           </>
         }
       />

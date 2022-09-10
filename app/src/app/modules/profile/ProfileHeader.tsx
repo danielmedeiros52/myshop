@@ -2,7 +2,6 @@
 import React from 'react'
 import {KTSVG, toAbsoluteUrl} from '../../../_metronic/helpers'
 import {Link} from 'react-router-dom'
-import {Dropdown1} from '../../../_metronic/partials'
 import {useLocation} from 'react-router-dom'
 
 const ProfileHeader: React.FC = () => {
@@ -98,7 +97,6 @@ const ProfileHeader: React.FC = () => {
                   >
                     <i className='bi bi-three-dots fs-3'></i>
                   </button>
-                  <Dropdown1 />
                 </div>
               </div>
             </div>

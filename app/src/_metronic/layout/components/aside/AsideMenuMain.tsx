@@ -28,6 +28,7 @@ export function AsideMenuMain() {
       >
           <AsideMenuItem to='/crafted/pages/profile/overview' title='Venda' hasBullet={true} />
           <AsideMenuItem to='/crafted/pages/profile/projects' title='Troca' hasBullet={true} />
+
           <AsideMenuItem
             to='/crafted/pages/profile/connections'
             title='Devolucao'
@@ -54,7 +55,7 @@ export function AsideMenuMain() {
         fontIcon='bi-chat-left'
         icon='/media/icons/duotune/communication/com012.svg'
       >
-        <AsideMenuItem to='/apps/chat/private-chat' title='Produtos' hasBullet={true} />
+        <AsideMenuItem to='/produtos-form' title='Produtos' hasBullet={true} />
       </AsideMenuItemWithSub>
 
       <AsideMenuItemWithSub
@@ -74,7 +75,7 @@ export function AsideMenuMain() {
         fontIcon='bi-chat-left'
         icon='/media/icons/duotune/communication/com012.svg'
       >
-        <AsideMenuItem to='/media/icons/duotune/communication/com006.svg' title='Usuarios' hasBullet={false} />
+        <AsideMenuItem to='/media/icons/duotune/communication/com006.svg' title='Usuarios' hasBullet={true} />
       </AsideMenuItemWithSub>
 
       <div className='menu-item'>

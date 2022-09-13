@@ -3,6 +3,7 @@ import React from 'react'
 import { KTSVG, toAbsoluteUrl } from '../../_metronic/helpers'
 import {useListView} from '../modules/core/ListViewProvider'
 import{ProductListSearchComponent} from '../modules/product/components/header/ProductListSearchComponent'
+import { Inventory } from '../modules/product/components/list/inventory'
 type Props = {
     className: string
 }
@@ -16,7 +17,10 @@ const TableDefault: React.FC<Props> = ({ className }) => {
       setItemIdForUpdate(null)
     }
     return (
+        <>
+        <Inventory/>
         <div className={`card ${className}`}>
+             
             {/* begin::Header */}
             <div className='card-header border-0 pt-5'>
                 <h3 className='card-title align-items-start flex-column'>
@@ -83,14 +87,20 @@ const TableDefault: React.FC<Props> = ({ className }) => {
                                 <td className='text-end'>
                                     <div className='d-flex flex-column w-100 me-2'>
                                         <div className='d-flex flex-stack mb-2'>
-                                            <span className='text-muted me-2 fs-7 fw-bold'>50%</span>
-                                        </div>
+                                            <span className='text-muted me-2 fs-7 fw-bold'>50% 
+                                          
+                                            </span>
+                                        </div> 
                                         <div className='progress h-6px w-100'>
+                                           
                                             <div
                                                 className='progress-bar bg-primary'
                                                 role='progressbar'
                                                 style={{ width: '50%' }}
-                                            ></div>
+                                            >
+
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </td>
@@ -125,7 +135,9 @@ const TableDefault: React.FC<Props> = ({ className }) => {
             </div>
             {/* begin::Body */}
         </div>
+        </>
     )
+  
 }
 
 export { TableDefault }

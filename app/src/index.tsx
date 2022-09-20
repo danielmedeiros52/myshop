@@ -5,11 +5,11 @@ import {QueryClient, QueryClientProvider} from 'react-query'
 import {ReactQueryDevtools} from 'react-query/devtools'
 
 // Apps
-import {MetronicI18nProvider} from './_metronic/i18n/Metronici18n'
+import {MetronicI18nProvider} from './theme/_metronic/i18n/Metronici18n'
 
-import './_metronic/assets/sass/style.scss'
-import './_metronic/assets/sass/style.react.scss'
-import {AppRoutes} from './app/routing/AppRoutes'
+import './theme/_metronic/assets/sass/style.scss'
+import './theme/_metronic/assets/sass/style.react.scss'
+import {AppRoutes} from './routing/AppRoutes'
 
 
 Chart.register(...registerables)

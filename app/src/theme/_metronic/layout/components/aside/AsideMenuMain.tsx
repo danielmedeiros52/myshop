@@ -55,7 +55,7 @@ export function AsideMenuMain() {
         fontIcon='bi-chat-left'
         icon='/media/icons/duotune/communication/com012.svg'
       >
-        <AsideMenuItem to='/produtos-form' title='Produtos' hasBullet={true} />
+        <AsideMenuItem to='/produtos' title='Produtos' hasBullet={true} />
       </AsideMenuItemWithSub>
 
       <AsideMenuItemWithSub

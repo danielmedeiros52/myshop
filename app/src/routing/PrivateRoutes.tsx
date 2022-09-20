@@ -1,7 +1,8 @@
 import {Route, Routes, Navigate} from 'react-router-dom'
 import {MasterLayout} from '../theme/_metronic/layout/MasterLayout'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
-import { TableDefault } from '../pages/ProductForm'
+import  ProductsPage from '../pages/product/list'
+import ProductForm from '../pages/product/form'
 
 
 const PrivateRoutes = () => {
@@ -13,7 +14,7 @@ const PrivateRoutes = () => {
         <Route path='auth/*' element={<Navigate to='/dashboard' />} />
         {/* Pages */}
         <Route path='dashboard' element={<DashboardWrapper />} />
-        <Route path="/produtos-form" element={<TableDefault className='mb-5 mb-xl-8'/>} />
+        <Route path="/produtos" element={<ProductForm className='mb-5 mb-xl-8'/>} />
         {/* Lazy Modules */}
     
                {/* Page Not Found */}

@@ -1,3 +1,4 @@
+import ProductEditModalFormWrapper from "./productEditModalFormWrapper"
 import ProductEditModalHeader from "./productEditModalHeader"
 
 type Props = {
@@ -14,13 +15,13 @@ export default function ProductForm({className}:Props ){
           aria-modal='true'
         >
           {/* begin::Modal dialog */}
-          <div className='modal-dialog modal-dialog-centered mw-650px'>
+          <div className='modal-dialog modal-dialog-centered mw-850px'>
             {/* begin::Modal content */}
             <div className='modal-content'>
               <ProductEditModalHeader />
               {/* begin::Modal body */}
               <div className='modal-body scroll-y mx-5 mx-xl-15 my-7'>
-                {/* <UserEditModalFormWrapper /> */}
+                <ProductEditModalFormWrapper />
               </div>
               {/* end::Modal body */}
             </div>

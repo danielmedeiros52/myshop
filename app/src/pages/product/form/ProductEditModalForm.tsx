@@ -7,26 +7,14 @@ import { useListView } from "../../../modules/core/ListViewProvider"
 import { toAbsoluteUrl } from '../../../theme/_metronic/helpers'
 
 type Props = {
-  isUserLoading: boolean
   product: IProduct
 }
 
-const editUserSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Wrong email format')
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
-  name: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Name is required'),
-})
 
-export default function UserEditModalForm({product, isUserLoading}:Props) {
+export default function UserEditModalForm({product}:Props) {
 
-  const blankImg = toAbsoluteUrl('/media/svg/avatars/blank.svg')
-  const userAvatarImg = toAbsoluteUrl(`/media/`)
+  const blankImg = toAbsoluteUrl('/media/svg/avatars/blank-dark.svg')
+  const userAvatarImg = toAbsoluteUrl(`/media/avatars/unknowuser.jpeg`)
   
   return (
     <>
@@ -45,7 +33,7 @@ export default function UserEditModalForm({product, isUserLoading}:Props) {
           {/* begin::Input group */}
           <div className='fv-row mb-7'>
             {/* begin::Label */}
-            <label className='d-block fw-bold fs-6 mb-5'>Avatar</label>
+            <label className='d-block fw-bold fs-6 mb-5'>Foto</label>
             {/* end::Label */}
 
             {/* begin::Image input */}
@@ -59,81 +47,107 @@ export default function UserEditModalForm({product, isUserLoading}:Props) {
                 className='image-input-wrapper w-125px h-125px'
                 style={{backgroundImage: `url('${userAvatarImg}')`}}
               ></div>
+              
               {/* end::Preview existing avatar */}
 
               {/* begin::Label */}
-              {/* <label
+              <label
               className='btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow'
               data-kt-image-input-action='change'
               data-bs-toggle='tooltip'
-              title='Change avatar'
+              title='Foto do produto'
             >
               <i className='bi bi-pencil-fill fs-7'></i>
 
               <input type='file' name='avatar' accept='.png, .jpg, .jpeg' />
               <input type='hidden' name='avatar_remove' />
-            </label> */}
+            </label>
               {/* end::Label */}
 
               {/* begin::Cancel */}
-              {/* <span
+              <span
               className='btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow'
               data-kt-image-input-action='cancel'
               data-bs-toggle='tooltip'
               title='Cancel avatar'
             >
               <i className='bi bi-x fs-2'></i>
-            </span> */}
+            </span>
               {/* end::Cancel */}
 
               {/* begin::Remove */}
-              {/* <span
+              <span
               className='btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow'
               data-kt-image-input-action='remove'
               data-bs-toggle='tooltip'
               title='Remove avatar'
             >
               <i className='bi bi-x fs-2'></i>
-            </span> */}
+            </span>
               {/* end::Remove */}
             </div>
             {/* end::Image input */}
 
             {/* begin::Hint */}
-            {/* <div className='form-text'>Allowed file types: png, jpg, jpeg.</div> */}
+            <div className='form-text'>Permitido apenas os formatos: png, jpg, jpeg.</div>
             {/* end::Hint */}
           </div>
+          
           {/* end::Input group */}
 
           {/* begin::Input group */}
-          <div className='fv-row mb-7'>
+          <div className='row mb-2'>
+          <div className='col-2 mb-2'>
             {/* begin::Label */}
-            <label className='required fw-bold fs-6 mb-2'>Full Name</label>
+            <label className='required fw-bold fs-6 mb-2'>Ref.</label>
             {/* end::Label */}
 
             {/* begin::Input */}
             <input
               placeholder='Full name'
-              {...formik.getFieldProps('name')}
+              // {...formik.getFieldProps('name')}
               type='text'
               name='name'
               className={clsx(
                 'form-control form-control-solid mb-3 mb-lg-0',
-                {'is-invalid': formik.touched.name && formik.errors.name},
+                // {'is-invalid': formik.touched.name && formik.errors.name},
                 {
-                  'is-valid': formik.touched.name && !formik.errors.name,
+                  // 'is-valid': formik.touched.name && !formik.errors.name,
                 }
               )}
               autoComplete='off'
-              disabled={formik.isSubmitting || isUserLoading}
-            />
-            {formik.touched.name && formik.errors.name && (
+              // disabled={formik.isSubmitting || isUserLoading}
+            />   
+            </div>   
+            <div className='col mb-2'>
+            {/* begin::Label */}
+            <label className='required fw-bold fs-6 mb-2'>Descrição.</label>
+            {/* end::Label */}
+
+            {/* begin::Input */}
+            <input
+              placeholder='Full name'
+              // {...formik.getFieldProps('name')}
+              type='text'
+              name='name'
+              className={clsx(
+                'form-control form-control-solid mb-3 mb-lg-0',
+                // {'is-invalid': formik.touched.name && formik.errors.name},
+                {
+                  // 'is-valid': formik.touched.name && !formik.errors.name,
+                }
+              )}
+              autoComplete='off'
+              // disabled={formik.isSubmitting || isUserLoading}
+            />   
+            </div>
+            {/* {formik.touched.name && formik.errors.name && (
               <div className='fv-plugins-message-container'>
                 <div className='fv-help-block'>
                   <span role='alert'>{formik.errors.name}</span>
                 </div>
               </div>
-            )}
+            )} */}
             {/* end::Input */}
           </div>
           {/* end::Input group */}
@@ -147,26 +161,26 @@ export default function UserEditModalForm({product, isUserLoading}:Props) {
             {/* begin::Input */}
             <input
               placeholder='Email'
-              {...formik.getFieldProps('email')}
+              // {...formik.getFieldProps('email')}
               className={clsx(
                 'form-control form-control-solid mb-3 mb-lg-0',
-                {'is-invalid': formik.touched.email && formik.errors.email},
+                // {'is-invalid': formik.touched.email && formik.errors.email},
                 {
-                  'is-valid': formik.touched.email && !formik.errors.email,
+                  // 'is-valid': formik.touched.email && !formik.errors.email,
                 }
               )}
               type='email'
               name='email'
               autoComplete='off'
-              disabled={formik.isSubmitting || isUserLoading}
+              // disabled={formik.isSubmitting || isUserLoading}
             />
             {/* end::Input */}
-            {formik.touched.email && formik.errors.email && (
-              <div className='fv-plugins-message-container'>
+            {/* {formik.touched.email && formik.errors.email && ( */}
+              {/* <div className='fv-plugins-message-container'>
                 <span role='alert'>{formik.errors.email}</span>
               </div>
             )}
-          </div>
+          </div> */}
           {/* end::Input group */}
 
           {/* begin::Input group */}
@@ -182,13 +196,13 @@ export default function UserEditModalForm({product, isUserLoading}:Props) {
                 {/* begin::Input */}
                 <input
                   className='form-check-input me-3'
-                  {...formik.getFieldProps('role')}
+                  // {...formik.getFieldProps('role')}
                   name='role'
                   type='radio'
                   value='Administrator'
                   id='kt_modal_update_role_option_0'
-                  checked={formik.values.role === 'Administrator'}
-                  disabled={formik.isSubmitting || isUserLoading}
+                  // checked={formik.values.role === 'Administrator'}
+                  // disabled={formik.isSubmitting || isUserLoading}
                 />
 
                 {/* end::Input */}
@@ -212,13 +226,13 @@ export default function UserEditModalForm({product, isUserLoading}:Props) {
                 {/* begin::Input */}
                 <input
                   className='form-check-input me-3'
-                  {...formik.getFieldProps('role')}
+                  // {...formik.getFieldProps('role')}
                   name='role'
                   type='radio'
                   value='Developer'
                   id='kt_modal_update_role_option_1'
-                  checked={formik.values.role === 'Developer'}
-                  disabled={formik.isSubmitting || isUserLoading}
+                  // checked={formik.values.role === 'Developer'}
+                  // disabled={formik.isSubmitting || isUserLoading}
                 />
                 {/* end::Input */}
                 {/* begin::Label */}
@@ -241,13 +255,13 @@ export default function UserEditModalForm({product, isUserLoading}:Props) {
                 {/* begin::Input */}
                 <input
                   className='form-check-input me-3'
-                  {...formik.getFieldProps('role')}
+                  // {...formik.getFieldProps('role')}
                   name='role'
                   type='radio'
                   value='Analyst'
                   id='kt_modal_update_role_option_2'
-                  checked={formik.values.role === 'Analyst'}
-                  disabled={formik.isSubmitting || isUserLoading}
+                  // checked={formik.values.role === 'Analyst'}
+                  // disabled={formik.isSubmitting || isUserLoading}
                 />
 
                 {/* end::Input */}
@@ -272,7 +286,7 @@ export default function UserEditModalForm({product, isUserLoading}:Props) {
                 {/* begin::Input */}
                 <input
                   className='form-check-input me-3'
-                  {...formik.getFieldProps('role')}
+                  // {...formik.getFieldProps('role')}
                   name='role'
                   type='radio'
                   value='Support'
@@ -327,6 +341,7 @@ export default function UserEditModalForm({product, isUserLoading}:Props) {
           </div>
           {/* end::Input group */}
         </div>
+        </div>
         {/* end::Scroll */}
 
         {/* begin::Actions */}
@@ -348,12 +363,12 @@ export default function UserEditModalForm({product, isUserLoading}:Props) {
             // disabled={isUserLoading || formik.isSubmitting || !formik.isValid || !formik.touched}
           >
             <span className='indicator-label'>Submit</span>
-            {(isUserLoading) && (
+            {/* {(isUserLoading) && (
               <span className='indicator-progress'>
                 Please wait...{' '}
                 <span className='spinner-border spinner-border-sm align-middle ms-2'></span>
               </span>
-            )}
+            )} */}
           </button>
         </div>
         {/* end::Actions */}
